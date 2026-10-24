@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    color: #fff;
+}
+
+#banner_promo {
+    background: linear-gradient(90deg, #5724c5 0%, #8b1c76 50%, #b40049 100%);
+    height: 44px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+header {
+    width: 100%;
+}
+
+#encabezado_principal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 140px;
+}
+
+#encabezado_principal img {
+    height: 60px;
+    width: auto;
+
+}
+
+#botones_principales {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+.btn_idioma {
+    border-radius: 4px;
+    padding: 6px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #fff;
+    border: solid 1px white;
+}
+
+.btn_rojo {
+    border-radius: 4px;
+    padding: 7px 16px;
+    font-weight: bold;
+    background-color: red;
+    color: #fff;
+}
+
+#promo_principal {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.819), rgba(0, 0, 0, 0.637)), url(/img/GT-es-20260727-TRIFECTA-perspective_77b4fac7-40d2-4384-a760-340578d2520e_large.jpg);
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.contenido_hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40rem;
+}
+
+.contenido_hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    width: 35rem;
+}
+
+.contenido_hero h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 24px;
+}
+
+.contenido_hero p {
+    font-size: 1.1rem;
+}
+
+.formulario_email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.formulario_email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.formulario_email input {
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid white;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.438);
+}
+
+.btn_rojo_lg {
+    height: 56px;
+    border-radius: 4px;
+    padding: 0 24px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: red;
+    border: none;
+    color: #fff;
+    width: auto;
+}
+
+#terminos_promo {
+    margin-top: 16px;
+}
+
+#tendencias {
+    background-color: rgb(0, 0, 0);
+    padding: 50px 140px;
+}
+
+#tendencias h2 {
+    font-size: 1.5rem;
+}
+
+.contenedor_tarjetas {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.tarjeta_tendencia {
+    height: 250px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.tarjeta_tendencia span {
+    margin-left: -25px;
+    font-size: 7rem;
+    font-weight: bold;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    color: black
+}
+
+#seccion_beneficios {
+    padding: 50px 140px;
+    background-color: black;
+}
+
+#seccion_beneficios h2 {
+    font-size: 1.5rem;
+}
+
+#beneficios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.tarjeta_beneficio {
+    background: linear-gradient(135deg, #2e1049 0%, #491124 50%, #3f0b18 100%);
+    border-radius: 16px;
+    padding: 24px;
+    min-height: 280px;
+    position: relative;
+}
+
+.tarjeta_beneficio h3 {
+    font-size: 1.3rem;
+}
+
+.tarjeta_beneficio p {
+    font-size: 0.95rem;
+}
+
+.tarjeta_beneficio i {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2.5rem;
+}
+
+#preguntas_frecuentes {
+    background-color: black;
+    padding: 50px 140px;
+}
+
+#preguntas_frecuentes h2 {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.lista_de_opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 70rem;
+}
+
+.lista_de_opciones :hover {
+    background-color: #4b4a4a;
+}
+
+.opciones_finales {
+    padding: 24px;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+    background-color: #2d2d2d;
+    color: #fff;
+}
+
+.opciones_finales>i {
+    font-size: 2rem;
+}
+
+#promo_final {
+    background-color: black;
+    padding: 50px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nota_legal {
+    max-width: 800px;
+    text-align: center;
+}
+
+footer {
+    background-color: black;
+    padding: 50px 140px;
+    font-size: 0.85rem;
+}
+
+.telefono_contacto {
+    margin-bottom: 30px;
+}
+
+.telefono_contacto a {
+    color: inherit;
+}
+
+.links_footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.links_footer a {
+    color: white;
+}
+
+.region {
+    margin-top: 20px;
+    font-size: 0.8rem;
+}
+
+/* tablet */
+@media(min-width: 768px) and (max-width: 1024px) {
+
+    #encabezado_principal,
+    #seccion_beneficios,
+    #preguntas_frecuentes,
+    #tendencias,
+    #promo_final,
+    footer {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .contenedor_tarjetas {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        width: 45rem;
+    }
+
+    .tarjeta_tendencia {
+        height: 20vh;
+        background-size: cover;
+    }
+
+    #beneficios {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .tarjeta_beneficio {
+        min-height: 180px;
+    }
+
+    .links_footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+/* telefono*/
+@media (min-width: 275px) and (max-width: 667px) {
+
+    #encabezado_principal,
+    #tendencias,
+    #seccion_beneficios,
+    #preguntas_frecuentes,
+    #promo_final,
+    footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #banner_promo {
+        text-align: center;
+    }
+
+    #encabezado_principal {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 0;
+    }
+
+    #encabezado_principal img {
+        height: 30px;
+    }
+
+    #botones_principales {
+        gap: 6px;
+    }
+
+    .btn_idioma {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+
+    .btn_rojo {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    #promo_principal {
+        min-height: 75vh;
+        padding: 30px 20px;
+    }
+
+    .contenido_hero {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .contenido_hero h1 {
+        width: 100%;
+        font-size: 2rem;
+
+    }
+
+    .contenido_hero p {
+        font-size: 1rem;
+    }
+
+    .formulario_email {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .formulario_email input {
+        width: 100%;
+    }
+
+    .btn_rojo_lg {
+        width: 100%;
+
+    }
+
+    #tendencias {
+        overflow: hidden;
+    }
+
+    .tarjeta_tendencia:nth-child(n+4) {
+        display: none;
+    }
+
+    .contenedor_tarjetas {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        max-width: 100%;
+    }
+
+    .tarjeta_tendencia {
+        width: 100%;
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 6px;
+        position: relative;
+    }
+
+    .tarjeta_tendencia span {
+        position: absolute;
+        margin-left: 0;
+        font-size: 4rem;
+        -webkit-text-stroke: 1.5px white;
+        color: black;
+    }
+
+    #beneficios {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .tarjeta_beneficio {
+        width: 100%;
+        min-height: 165px;
+        padding: 16px;
+        border-radius: 12px;
+    }
+
+    .tarjeta_beneficio i {
+        font-size: 2rem;
+    }
+
+    #promo_final p {
+        font-size: 0.9rem;
+    }
+
+    .nota_legal {
+        font-size: 0.7rem;
+    }
+
+    .links_footer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .links_footer a {
+        font-size: 0.75rem;
+    }
+}

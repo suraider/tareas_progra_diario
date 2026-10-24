@@ -1,0 +1,156 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background-image: url("/imagenes/ejercicio_iconos/fondo-onda-forma-cortada-papel-abstracto_474888-4649.avif");
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vw;
+    margin: 0%;
+    background-attachment: fixed;
+    position: absolute;
+    background-size: cover;
+}
+
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+}
+
+.resolution {
+    display: flex;
+    align-self: flex-end;
+    margin-left: 1000px;
+    font-size: 30px;
+    color: black;
+
+}
+
+h1 {
+    font-style: oblique;
+    margin-left: 20px;
+}
+
+p {
+    font-style: oblique;
+    margin-left: 20px;
+}
+
+#titulo {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+
+.general {
+    display: grid;
+    grid-auto-flow: column;
+    position: relative;
+    border-radius: 2%;
+    margin-left: 7%;
+    width: 87%;
+    height: 630px;
+    background-color: rgba(74, 161, 96, 0.445);
+}
+
+
+.uno {
+    position: relative;
+    margin: 50px;
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 30px;
+    width: 300px;
+    height: 500px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    box-shadow: 2px 2px 5px #000000;
+
+}
+
+.uno img {
+    margin: 27px;
+    height: 150px;
+    width: 250px;
+}
+
+.dos {
+    position: relative;
+    margin: 50px;
+    padding: 10px;
+    background-color: antiquewhite;
+    border-radius: 30px;
+    width: 300px;
+    height: 500px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    box-shadow: 10px 10px 0px 5px #000000;
+
+}
+
+.dos img {
+    margin: 27px;
+    height: 150px;
+    width: 250px;
+}
+
+.tres {
+    position: relative;
+    margin: 50px;
+    padding: 15px;
+    background-color: antiquewhite;
+    border-radius: 30px;
+    width: 300px;
+    height: 500px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
+    box-shadow: 0px 10px 10px 0px #000000;
+
+}
+
+.tres img {
+    margin: 27px;
+    height: 150px;
+    width: 250px;
+}
+
+.listas {
+    display: flex;
+    align-content: center;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(128, 128, 128, 0.418);
+    border-style: solid;
+    border-color: black;
+
+
+}
+
+.listas img {
+    height: 300px;
+    width: 300px;
+    ;
+    margin-left: 900px;
+    margin-top: 40px;
+}
+
+.icons {
+    margin: 100px;
+    font-size: 50px;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+
+}
+
+.brandon {
+    margin-left: 50px;
+    color: #775151;
+}
