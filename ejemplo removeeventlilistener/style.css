@@ -1,0 +1,19 @@
+#miCuadro{
+    background-color: aqua;
+width: 100px;
+height: 100px;
+}
+
+#miBoton{
+    background-color: black;
+    color: wheat;
+width: 100px;
+height: 100px;
+}
+
+#miBoton2{
+     background-color: rgb(27, 109, 68);
+    color: wheat;
+width: 100px;
+height: 100px;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de Universos por Hash Criptográfico</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #020205;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        canvas {
+            display: block;
+        }
+        #info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none; /* No estorba al hacer clic */
+            max-width: 400px;
+        }
+        h1 { margin: 0 0 5px 0; font-size: 16px; color: #00ffcc; text-transform: uppercase; letter-spacing: 1px;}
+        p { margin: 3px 0; font-size: 11px; color: #bbb; font-family: monospace; word-break: break-all;}
+        .instruccion { color: #ff007f; font-weight: bold; margin-top: 10px !important; font-family: sans-serif; font-size: 12px;}
+    </style>
+</head>
+<body>
+
+    <div id="info-panel">
+        <h1>Hiper-Estructura Hash</h1>
+        <p><strong>Semilla:</strong> <span id="txt-semilla">-</span></p>
+        <p><strong>Hash SHA-256:</strong> <span id="txt-hash">-</span></p>
+        <p><strong>Partículas:</strong> <span id="txt-particulas">-</span></p>
+        <p><strong>Complejidad Fractal:</strong> <span id="txt-complejidad">-</span></p>
+        <p class="instruccion">👉 Haz clic en cualquier lugar para mutar el universo</p>
+    </div>
+
+    <canvas id="lienzo"></canvas>
+
+    <script>
+        const canvas = document.getElementById('lienzo');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Variables globales del motor
+        let particulas = [];
+        let tiempo = 0;
+        let parametros = {};
+
+        // ========================================================
+        // 1. FUNCIÓN HASH REAL (SHA-256)
+        // ========================================================
+        // Esta función convierte cualquier texto en un string de 64 caracteres único e irreversible.
+        async function generarSHA256(texto) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(texto);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data); // Algoritmo nativo del navegador [1]
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // ========================================================
+        // 2. TRADUCTOR DE HASH A FÍSICA CUÁNTICA
+        // ========================================================
+        // Desmenuzamos el Hash en bloques para extraer las propiedades de la animación.
+        function configurarUniversoDesdeHash(hash) {
+            
+            // Substring(X, Y) extrae letras del Hash. parseInt(..., 16) las convierte en números.
+
+            parametros = {
+                // CANTIDAD: Controla cuántos hilos de luz existirán en el lienzo
+                cantidad: (parseInt(hash.substring(0, 3), 16) % 1500) + 800,
+
+                // TONO BASE: Define el color inicial en la rueda cromática HSL (0 a 360 grados)
+                tonoBase: parseInt(hash.substring(3, 6), 16) % 360,
+
+                // RANGO CROMÁTICO: Qué tanto varía el color entre cada partícula individual
+                rangoColor: (parseInt(hash.substring(6, 8), 16) % 120) + 30,
+
+                // VELOCIDAD GLOBAL: Qué tan rápido viajan los flujos de energía
+                velocidad: (parseInt(hash.substring(8, 10), 16) / 255) * 3 + 1,
+
+                // COMPLEJIDAD MATEMÁTICA: Modifica la escala geométrica del campo de vectores (el "ruido")
+                complejidad: (parseInt(hash.substring(10, 13), 16) / 4095) * 0.005 + 0.001,
+
+                // FUERZA MATEMÁTICA: Qué tan violentas o cerradas son las curvas de los remolinos
+                fuerzaCurva: (parseInt(hash.substring(13, 15), 16) / 255) * 15 + 5,
+
+                // MUTACIÓN TEMPORAL: Ritmo al que los vórtices se retuercen solos con el tiempo
+                ritmoEvolucion: (parseInt(hash.substring(15, 17), 16) / 255) * 0.01 + 0.002
+            };
+
+            // Actualizamos visualmente el panel de información en pantalla
+            document.getElementById('txt-hash').innerText = hash;
+            document.getElementById('txt-particulas').innerText = parametros.cantidad;
+            document.getElementById('txt-complejidad').innerText = (parametros.complejidad * 1000).toFixed(2) + " Hz";
+
+            // Reiniciamos el ejército de partículas con sus nuevas leyes físicas
+            crearParticulas();
+        }
+
+        // ========================================================
+        // 3. DISEÑO Y CREACIÓN DE PARTÍCULAS
+        // ========================================================
+        function crearParticulas() {
+            particulas = [];
+            for (let i = 0; i < parametros.cantidad; i++) {
+                particulas.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    historial: [], // Almacena posiciones anteriores para dibujar curvas sólidas perfectas
+                    largoEstela: Math.floor(Math.random() * 15) + 5, // Cuántos segmentos mide su cola
+                    colorMod: Math.random() * parametros.rangoColor, // Variación de color única de esta partícula
+                    grosor: Math.random() * 1.5 + 0.5 // El grosor del trazo de luz
+                });
+            }
+        }
+
+        // ========================================================
+        // 4. BUCLE DE RENDERIZADO IMPRESIONANTE
+        // ========================================================
+        function animar() {
+            // Capa negra ultra translúcida (0.04) para crear un rastro de luz suave y elegante
+            ctx.fillStyle = 'rgba(2, 2, 5, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // El motor del tiempo avanza
+            tiempo += parametros.ritmoEvolucion;
+
+            particulas.forEach(p => {
+                // CAMPO DE FLUJO MATEMÁTICO:
+                // Usamos trigonometría avanzada (Seno y Coseno cruzados multiplicando sus posiciones X e Y)
+                // Esto genera un efecto de simulación de fluidos digital super complejo sin usar librerías externas.
+                let angulo = Math.sin(p.x * parametros.complejidad + tiempo) * parametros.fuerzaCurva +
+                             Math.cos(p.y * parametros.complejidad - tiempo) * parametros.fuerzaCurva;
+
+                // Guardamos la posición actual en su historial antes de moverla
+                p.historial.push({ x: p.x, y: p.y });
+                if (p.historial.length > p.largoEstela) {
+                    p.historial.shift(); // Borra la posición más vieja si supera el largo permitido
+                }
+
+                // Movemos la partícula hacia donde apunta el ángulo magnético del mapa
+                p.x += Math.cos(angulo) * parametros.velocidad;
+                p.y += Math.sin(angulo) * parametros.velocidad;
+
+                // Límites de la pantalla: Si muere en un borde, renace mágicamente en un punto aleatorio
+                if (p.x < 0 || p.x > canvas.width || p.y < 0 || p.y > canvas.height) {
+                    p.x = Math.random() * canvas.width;
+                    p.y = Math.random() * canvas.height;
+                    p.historial = []; // Resetea su cola para que no cruce la pantalla feamente
+                }
+
+                // DIBUJAR LA ESTELA CURVA:
+                // Si la partícula tiene historial, dibujamos una línea fluida uniendo sus puntos pasados
+                if (p.historial.length > 1) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.historial[0].x, p.historial[0].y);
+                    
+                    for (let i = 1; i < p.historial.length; i++) {
+                        ctx.lineTo(p.historial[i].x, p.historial[i].y);
+                    }
+
+                    // El color es una mezcla del tono base del Hash + la modificación única de la partícula
+                    let colorFinal = (parametros.tonoBase + p.colorMod) % 360;
+                    
+                    ctx.strokeStyle = `hsla(${colorFinal}, 85%, 60%, 0.4)`;
+                    ctx.lineWidth = p.grosor;
+                    ctx.lineCap = "round"; // Bordes redondeados para máxima fluidez óptica
+                    ctx.stroke();
+                }
+            });
+
+            requestAnimationFrame(animar);
+        }
+
+        // ========================================================
+        // 5. INTERACCIONES Y DETONADORES
+        // ========================================================
+        async function mutarUniverso(nuevaSemilla) {
+            document.getElementById('txt-semilla').innerText = nuevaSemilla;
+            // Esperamos a que la función asíncrona calcule el SHA-256 criptográfico [1]
+            const nuevoHash = await generarSHA256(nuevaSemilla);
+            configurarUniversoDesdeHash(nuevoHash);
+        }
+
+        // Evento al hacer clic: Genera una semilla aleatoria matemática y la procesa
+        window.addEventListener('click', () => {
+            const semillaAleatoria = "Universo_" + Math.floor(Math.random() * 999999);
+            mutarUniverso(semillaAleatoria);
+        });
+
+        // Evento para ajustar el tamaño si el usuario cambia la pantalla
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            crearParticulas();
+        });
+
